@@ -15,9 +15,18 @@ html {
 }
 
 body {
-	/* @apply p-0 m-0 text-gray-200 bg-gray-800; */
-	@apply text-gray-200 bg-gray-800;
-	font-family: 'Press Start 2P', sans-serif;
+    color: rgb(229, 231, 235); /* text-gray-200 */
+    background-color: rgb(31, 41, 55); /* bg-gray-800 */
+    font-family: 'Press Start 2P', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+body.bg-green-900 {
+    background-color: rgb(20, 83, 45); /* bg-green-900 */
+}
+
+body.bg-red-900 {
+    background-color: rgb(78, 22, 21); /* bg-red-900 */
 }
 
 /* HEADER */

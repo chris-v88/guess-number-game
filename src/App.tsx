@@ -1,12 +1,12 @@
 import { useStore } from 'zustand';
 import { useGameStore } from './store';
-import { msgList } from './components/helpers';
+import { msgList } from './components/constants';
 
 import './App.css';
 import GameBoard from './components/GameBoard';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const App = () => {
 	const {
@@ -41,6 +41,7 @@ const App = () => {
 	const gameHandler = () => {
 		if (score <= 1) {
 			setMessage(msgList.loseGame);
+			setIsGameLose(true);
 		} else {
 			checkNumber();
 		}
@@ -65,6 +66,20 @@ const App = () => {
 		setIsGameWin(true);
 		setMessage(msgList.correctInput);
 	};
+
+	// useEffect for changing background color based on game state
+	useEffect(() => {
+		const body = document.body;
+		body.classList.remove('bg-red-900', 'bg-green-900', 'bg-gray-800');
+
+		if (isGameWin) {
+			body.classList.add('bg-green-900');
+		} else if (isGameLose) {
+			body.classList.add('bg-red-900');
+		} else {
+			body.classList.add('bg-gray-800');
+		}
+	}, [isGameWin, isGameLose]);
 
 	// TODO: fix style so that footer is at bottom
 	return (

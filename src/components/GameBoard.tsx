@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useStore } from 'zustand';
 
 import { useGameStore } from '../store';
-import { msgList } from './helpers';
+import { msgList } from './constants';
 
 type GameBoardProps = {
 	isLoseGame: boolean;
